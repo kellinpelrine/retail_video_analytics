@@ -1,3 +1,7 @@
 *.avi
 *.jpg
 *.jpeg
+*.rar
+.ipynb_checkpoints
+*.mdb
+*.sql
