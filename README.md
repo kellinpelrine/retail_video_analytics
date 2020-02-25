@@ -1,4 +1,4 @@
-Computer vision to track people in video data, with intended application to retail stores. Work in progress.
+3 step algorithm for tracking people in video data, with intended application to retail stores. Work in progress.
 
 Data available at https://drive.google.com/drive/folders/17UMvm9GxCx6C4PxC3ZXb5rDUdFhUXJRd?usp=sharing.
 The raw data is from http://imagelab.ing.unimore.it/visor/3dpes.asp, and has been processed from individual frames into videos using OpenCV, with the lossless HuffYUV codec. The processing program, 'img_to_video.ipynb,' is included in the 'data' folder here.
