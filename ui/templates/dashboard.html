@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+</head>
+<body>
+    <p>{{ total_people }}</p>
+    <p>{{ total_people0 }}</p>
+    <p>{{ total_people1 }}</p>
+    <p>{{ total_people_sitting }}</p>
+    <img src="{{ plot }}" alt="Time spent by each customer in store">
+    <img src="{{ customers_by_time }}" alt="Customers by time of day">
+    <br>
+    <img src="{{ heatmap0 }}" alt="heatmap, camera 0">
+    <img src="{{ heatmap1 }}" alt="heatmap, camera 1">
+    <br>
+    <video width="480" height="320" controls>
+	<source src={{ url_for('static', filename=demovid) }} type="video/mp4">
+    	Your browser does not support the video tag.
+    </video>
+</body>
+</html>
