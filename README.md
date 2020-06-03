@@ -4,7 +4,9 @@
 
 The system here combines 3 algorithms: YOLOv3 from https://github.com/AlexeyAB/darknet, Deepsort object tracking from https://github.com/abhyantrika/nanonets_object_tracking, and person re-identification from https://github.com/layumi/Person_reID_baseline_pytorch. The combination facilitates tracking between multiple cameras and fixes a common failure seen with pure tracking algorithms, person ID swapping (when two people move too near each other).
 
-Deployment is facilitated through docker containers, flask web servers, and a MySQL db. It is designed to be deployed using Google Cloud Platform, which also facilitates easy multiple deployment by saving the virtual machine image of the first deployment.
+There is also a proof-of-concept activity recognition system, which currently includes walking, standing, and sitting.
+
+Deployment is facilitated through docker containers, flask web servers, and a MySQL db. Deployment was done using Google Cloud Platform, which also facilitates easy multiple deployment by saving the virtual machine image of the first deployment.
 
 To deploy for the first time on Google cloud, do the following. In subsequent deployments, you can save the disk image and skip steps 4 and 6, as well as 2 and 5 if using the same database.
 
@@ -35,12 +37,15 @@ To deploy for the first time on Google cloud, do the following. In subsequent de
 8. Upload startup.sh and run it with "bash startup.sh" to start the containers and web interface.
 9. Go to virtual-machine-ip:5000 to access the dashboard.
 
-From here, you can upload videos (multiple per upload if desired) with the name convention "camera0_video0" where the zeros are replaced with the desired camera and video numbers. Once processing is complete, the website shows how to view the results.
+From here, you can upload videos (as many per upload as desired) with the name convention "camera0_video0" where the zeros are replaced with the desired camera and video numbers. Once processing is complete, the website shows how to view the results.
 
-Dashboard shows information about the videos uploaded, including total number of people/customers, people in each camera, time each person is present, people/customers by time of day, anotated video including activities (moving = green, standing = blue, sitting = red, in this prototype), and heatmaps showing where people have been like these:
+Dashboard shows information about the videos uploaded, including total number of people/customers, people in each camera, time each person is present, people/customers by time of day, annotated video including activities (moving = green, standing = blue, sitting = red), and heatmaps showing where people have been like these:
 ![image](https://github.com/kellinpelrine/retail_video_analytics/blob/master/Dashboard%20picture%201.png)
 
-Main data available at https://drive.google.com/drive/folders/17UMvm9GxCx6C4PxC3ZXb5rDUdFhUXJRd?usp=sharing.
+Main data used for testing is available at https://drive.google.com/drive/folders/17UMvm9GxCx6C4PxC3ZXb5rDUdFhUXJRd?usp=sharing.
 The raw data is from http://imagelab.ing.unimore.it/visor/3dpes.asp, and has been processed from individual frames into videos using OpenCV, with the lossless HuffYUV codec. The processing program, 'img_to_video.ipynb,' is included in the 'data' folder here.
+
+To improve accuracy for a particular application, the 3 main algorithms here can be retrained take the unique aspects of the application into account, such as camera angles. Some code associated with retraining YOLO is included in the retraining folder, which was used on HDA Person Dataset (http://vislab.isr.ist.utl.pt/hda-dataset/) to significantly improve results. For retraining in general, reference the respective repositories.
+
 
 Future research: modular framework to add and modify components of this, more components, societal effects, management of related personal data, potential associated technologies. 
