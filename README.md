@@ -10,27 +10,27 @@ To deploy for the first time on Google cloud, do the following. In subsequent de
 
 1. Create virtual machine with GPU.
 2. Create MySQL database.
-- create database named "output_data"
-- run the following:
-  CREATE TABLE data
-  (
-  idx SERIAL PRIMARY KEY,
-  frame INTEGER NOT NULL,
-  person_id INTEGER NOT NULL,
-  bbox_left REAL NOT NULL,
-  bbox_top REAL NOT NULL,
-  bbox_width REAL NOT NULL,
-  bbox_height REAL NOT NULL,
-  activity INTEGER NOT NULL,
-  video_id INTEGER NOT NULL,
-  camera_id INTEGER NOT NULL
-  );
+  - create database named "output_data"
+  - run the following:
+    CREATE TABLE data
+    (
+    idx SERIAL PRIMARY KEY,
+    frame INTEGER NOT NULL,
+    person_id INTEGER NOT NULL,
+    bbox_left REAL NOT NULL,
+    bbox_top REAL NOT NULL,
+    bbox_width REAL NOT NULL,
+    bbox_height REAL NOT NULL,
+    activity INTEGER NOT NULL,
+    video_id INTEGER NOT NULL,
+    camera_id INTEGER NOT NULL
+    );
 3. Follow directions at https://cloud.google.com/sql/docs/mysql/connect-compute-engine#gce-connect-ip to enable connection between VM and database. Also on the vm allow access to port 5000 to access the dashboard and 8083 to call the activities container.
 4. Upload ui, activities, and inference folders to VM.
 5. Modify db_info.yaml in ui folder with the credentials to connect to your db.
 6. cd into the appropriate directories (inference, activities respectively) and build containers with nvidia-docker: 
-- nvidia-docker build -t tracker_container:latest .
-- nvidia-docker build -t activities_container:latest .
+  - nvidia-docker build -t tracker_container:latest .
+  - nvidia-docker build -t activities_container:latest .
 7. Modify ui_app.py for your desired number of cameras. Make static directory under ui and upload base images from each camera for heatmaps, named "camera0_empty.jpg" or the appropriate camera IDs. These are for heatmaps on the dashboard (see below).
 8. Upload startup.sh and run it with "bash startup.sh" to start the containers and web interface.
 9. Go to virtual-machine-ip:5000 to access the dashboard.
