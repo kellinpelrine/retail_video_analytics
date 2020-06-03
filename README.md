@@ -2,9 +2,6 @@
 
 ![](https://github.com/kellinpelrine/retail_video_analytics/blob/master/Dashboard%20video%201.gif)
 
-Main data available at https://drive.google.com/drive/folders/17UMvm9GxCx6C4PxC3ZXb5rDUdFhUXJRd?usp=sharing.
-The raw data is from http://imagelab.ing.unimore.it/visor/3dpes.asp, and has been processed from individual frames into videos using OpenCV, with the lossless HuffYUV codec. The processing program, 'img_to_video.ipynb,' is included in the 'data' folder here.
-
 The system here combines 3 algorithms: YOLOv3 from https://github.com/AlexeyAB/darknet, Deepsort object tracking from https://github.com/abhyantrika/nanonets_object_tracking, and person re-identification from https://github.com/layumi/Person_reID_baseline_pytorch. The combination facilitates tracking between multiple cameras and fixes a common failure seen with pure tracking algorithms, person ID swapping (when two people move too near each other).
 
 Deployment is facilitated through docker containers, flask web servers, and a MySQL db. It is designed to be deployed using Google Cloud Platform, which also facilitates easy multiple deployment by saving the virtual machine image of the first deployment.
@@ -40,7 +37,10 @@ To deploy for the first time on Google cloud, do the following. In subsequent de
 
 From here, you can upload videos (multiple per upload if desired) with the name convention "camera0_video0" where the zeros are replaced with the desired camera and video numbers. Once processing is complete, the website shows how to view the results.
 
+Dashboard shows information about the videos uploaded, including total number of people/customers, people in each camera, time each person is present, people/customers by time of day, anotated video including activities (moving = green, standing = blue, sitting = red, in this prototype), and heatmaps showing where people have been like these:
+![image](https://github.com/kellinpelrine/retail_video_analytics/blob/master/Dashboard%20picture%201.png)
 
-
+Main data available at https://drive.google.com/drive/folders/17UMvm9GxCx6C4PxC3ZXb5rDUdFhUXJRd?usp=sharing.
+The raw data is from http://imagelab.ing.unimore.it/visor/3dpes.asp, and has been processed from individual frames into videos using OpenCV, with the lossless HuffYUV codec. The processing program, 'img_to_video.ipynb,' is included in the 'data' folder here.
 
 Future research: modular framework to add and modify components of this, more components, societal effects, management of related personal data, potential associated technologies. 
