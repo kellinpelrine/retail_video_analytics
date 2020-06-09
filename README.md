@@ -1,8 +1,8 @@
-Pipeline deploying a 3 step algorithm for tracking people in video data and analyzing their movements, with intended application to retail stores.
+System for tracking people in video data and analyzing their movements, with intended application to retail stores.
 
 ![](https://github.com/kellinpelrine/retail_video_analytics/blob/master/Dashboard%20video%201.gif)
 
-The system here combines 3 algorithms: YOLOv3 from https://github.com/AlexeyAB/darknet, Deepsort object tracking from https://github.com/abhyantrika/nanonets_object_tracking, and person re-identification from https://github.com/layumi/Person_reID_baseline_pytorch. The combination facilitates tracking between multiple cameras and fixes a common failure seen with pure tracking algorithms, person ID swapping (when two people move too near each other).
+The tracking pipeline here combines 3 algorithms for tracking: YOLOv3 from https://github.com/AlexeyAB/darknet, Deepsort object tracking from https://github.com/abhyantrika/nanonets_object_tracking, and person re-identification from https://github.com/layumi/Person_reID_baseline_pytorch. The combination facilitates tracking between multiple cameras and fixes a common failure seen with pure tracking algorithms, person ID swapping (when two people move too near each other).
 
 There is also a proof-of-concept activity recognition system, which currently includes walking, standing, and sitting.
 
