@@ -1,4 +1,4 @@
-3 step algorithm for tracking people in video data, with intended application to retail stores.
+Pipeline implementing a 3 step algorithm for tracking people in video data, with intended application to retail stores.
 
 ![](https://github.com/kellinpelrine/retail_video_analytics/blob/master/Dashboard%20video%201.gif)
 
